@@ -59,6 +59,11 @@
             color: white;
             background-color:#BCBBBA;
         }
+        #randomkey{
+            margin-left: 20px;
+            margin-top: 10px;
+            color: white;
+        }
         .main{
             max-width: 980px !important;
             margin: 0 auto;
@@ -70,13 +75,18 @@
    <div class="main">
     <p id="demo1" style="color:white; margin-top:20px;">PlainText</p>
     <textarea id="plaintext_area" name="plaintext" placeholder="Enter text which you want to encrypt.."></textarea> <br>
-    <p id="demo2" style="color:white;"> Key</p>
-    <textarea type="text" name="key" placeholder="Enter key.." id="key_input"/></textarea> <br>;
-        <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)"><br>&nbsp;
-        <input type="button" value=" Decrypt " id="encrypt_button1"  onclick="doCrypt(true)">
+
+    <p id="demo2" style="color:white;"> Key <br><br>
+    <textarea type="text" name="key" placeholder="Enter key.." id="key_input"/></textarea><input type="checkbox" id="randomkey">Random <br><br>
+    </p>
+
+    <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)"><br>&nbsp;
+    <input type="button" value=" Decrypt " id="encrypt_button1"  onclick="doCrypt(true)">
+
     <textarea id="plaintext_area2" name="plaintext" placeholder="Encrypted Text"></textarea> <br>
     </div>
-      <script type="text/javascript">
+
+    <script type="text/javascript">
 /*
  * function which returns encryption when false is passed in isDecrypt.
  */
