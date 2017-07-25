@@ -1,10 +1,152 @@
 <html>
  <head>
-   <title>Js Code</title>
+   <title>Vignere Cipher</title>
+        <style>
+        #button1{
+            border-radius:10px;
+            background-color:dimgrey; 
+            float: right;
+            margin-bottom: 5px;
+            width: 100px;
+        }
+        #button1:hover{
+            color:white;
+        }
+        body{
+            background-image: url("img/nice.jpg");
+            background-position: center;
+        }
+        #plaintext_area{
+            width:100%;
+            color: white;
+            height: 10em;
+            background-color:dimgrey; 
+        }
+        #key_input{
+            width: 70%;
+            color: white;
+    float: left;
+            background-color:dimgrey; 
+        }
+        #encrypt_button{
+            border-radius:10px;
+            background-color:dimgrey;
+            margin-bottom: 5px;
+            width:100px;
+            margin: 10px;
+        }
+        #encrypt_button1{
+            border-radius:10px;
+            background-color:dimgrey;
+            margin-bottom: 5px;
+            float: right;
+            width:100px;
+            margin-top: -32px;
+        }
+
+        #encrypt_button:hover{
+            color:white;
+        }
+        #plaintext_area1{
+            width:100%;
+            height: 10em;
+            color: white;
+            background-color:dimgrey; 
+        }
+        .main{
+            max-width: 980px !important;
+            margin: 0 auto;
+        }
+    </style>
  </head>
     <body>
-      <p>This is what we love...</p>
-      <script>
-      </script>
+
+   <div class="main">
+    <p id="demo1" style="color:white; margin-top:20px;">PlainText</p>
+    <textarea id="plaintext_area" name="plaintext" placeholder="Enter text which you want to encrypt.."></textarea> <br>
+    <p id="demo2" style="color:white;"> Key</p>
+    <input type="text" name="key" placeholder="Enter key.." id="key_input"/> <br>&nbsp;
+        <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)"><br>&nbsp;
+        <input type="button" value=" Decrypt " id="encrypt_button1"  onclick="doCrypt(true)">
+    
+    </div>
+      <script type="text/javascript">
+/* 
+ * function which returns encryption when false is passed in isDecrypt.
+ */
+function doCrypt(isDecrypt) {
+	if (document.getElementById("key_input").value.length == 0) {
+		alert("Key is empty");
+		return;
+	}
+    if (document.getElementById("plaintext_area").value.length == 0) {
+		alert("Key is empty");
+		return;
+	}
+	var key = filterKey(document.getElementById("key_input").value);
+	if (key.length == 0) {
+		alert("Key has no letters");
+		return;
+	}
+	if (isDecrypt) {
+		for (var i = 0; i < key.length; i++)
+			key[i] = (26 - key[i]) % 26;
+	}
+	var textElem = document.getElementById("plaintext_area");
+	textElem.value = crypt(textElem.value, key);
+}
+
+/* 
+ * Returns the result the Vigenère encryption on the given text with the given key.
+ */
+function crypt(input, key) {
+	var output = "";
+	for (var i = 0, j = 0; i < input.length; i++) {
+		var c = input.charCodeAt(i);
+		if (isUppercase(c)) {
+			output += String.fromCharCode((c - 65 + key[j % key.length]) % 26 + 65);
+			j++;
+		} else if (isLowercase(c)) {
+			output += String.fromCharCode((c - 97 + key[j % key.length]) % 26 + 97);
+			j++;
+		} else {
+			output += input.charAt(i);
+		}
+	}
+	return output;
+}
+
+/* 
+ * Returns an array of numbers, each in the range [0, 26), representing the given key. The key is case-insensitive, and non-letters are ignored.
+ * Examples:
+ *   filterKey("AAA") = [0, 0, 0]
+ *   filterKey("abc") = [0, 1, 2]
+ *   filterKey("the $123# EHT") = [19, 7, 4, 4, 7, 19]
+ */
+function filterKey(key) {
+	var result = [];
+	for (var i = 0; i < key.length; i++) {
+		var c = key.charCodeAt(i);
+		if (isLetter(c))
+			result.push((c - 65) % 32);
+	}
+	return result;
+}
+ //basically it checks all the cases of uppercase and lowercase.
+// Tests whether the specified character code is a letter.
+function isLetter(c) {
+	return isUppercase(c) || isLowercase(c);
+}
+
+// Tests whether the specified character code is an uppercase letter.
+function isUppercase(c) {
+	return c >= 65 && c <= 90;  // 65 is the character code for 'A'. 90 is for 'Z'.
+}
+
+// Tests whether the specified character code is a lowercase letter.
+function isLowercase(c) {
+	return c >= 97 && c <= 122;  // 97 is the character code for 'a'. 122 is for 'z'.
+}
+</script>
     </body>
 </html>
