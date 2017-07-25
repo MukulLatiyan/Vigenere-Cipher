@@ -91,27 +91,35 @@
  * function which returns encryption when false is passed in isDecrypt.
  */
 function doCrypt(isDecrypt) {
-	if (document.getElementById("key_input").value.length == 0) {
-		alert("Key is empty");
-		return;
-	}
-    if (document.getElementById("plaintext_area").value.length == 0) {
-		alert("No message to encrypt");
-		return;
-	}
-	var key = filterKey(document.getElementById("key_input").value);
-	if (key.length == 0) {
-		alert("Key has no letters");
-		return;
-	}
-	if (isDecrypt) {
+
+  var key = filterKey(document.getElementById("key_input").value);
+  if (isDecrypt) {
 		for (var i = 0; i < key.length; i++)
 			key[i] = (26 - key[i]) % 26;
-	}
+	var textElem = document.getElementById("plaintext_area2").value;
+	textElem = crypt(textElem, key);
+  document.getElementById("plaintext_area").innerHTML = textElem;
+  }
+
+  else{
+   if (document.getElementById("key_input").value.length == 0) {
+	 	 alert("Key is empty");
+		 return;
+	 }
+     if (document.getElementById("plaintext_area").value.length == 0) {
+	  	alert("No message to encrypt");
+  		return;
+	 }
+	 if (key.length == 0) {
+  		alert("Key has no letters");
+		 return;
+	 }
 	var textElem = document.getElementById("plaintext_area").value;
 	textElem = crypt(textElem, key);
   document.getElementById("plaintext_area2").innerHTML = textElem;
-}
+  }
+
+  }
 
 /*
  * Returns the result the Vigenère encryption on the given text with the given key.
