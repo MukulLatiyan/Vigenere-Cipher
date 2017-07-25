@@ -1,0 +1,9 @@
+Plans
+
+1>[DONE]make the vigenere cipher
+2>add functionality for random key
+3>make it possible for sending and recieving messages
+	>find way for sending key if using random key
+4>build a password manager, user only needs to remember key 
+	>make fields for username and password, possibly a seperate webpage
+	>database to store it all
