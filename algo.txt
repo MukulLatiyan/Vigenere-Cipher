@@ -1,0 +1,10 @@
+Algo
+
+1>take keyword (either user-input or random) (eg TEA)
+2>convert to numbers (A=0, B=1...) (ie 19-4-0)
+3>superimpose consecutive keynumbers over message (eg i love coding)
+
+ 19  4   0   19  4   0   19  4   0   19  4
+ i   l   o   v   e   c   o   d   i   n   g
+
+4>based on keynumber, encrypt message (i= 19 places after ie b ...)
