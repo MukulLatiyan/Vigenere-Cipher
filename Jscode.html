@@ -27,6 +27,7 @@
             color: black;
             height: 10em;
             background-color:#BCBBBA;
+            margin-top: 20px;
         }
         #key_input{
             width: 70%;
@@ -38,19 +39,29 @@
             border-radius:10px;
             background-color:dimgrey;
             margin-bottom: 5px;
-            width:100px;
-            margin: 10px;
+            width:80px;
+            margin-left: 10px;
         }
         #encrypt_button1{
             border-radius:10px;
             background-color:dimgrey;
             margin-bottom: 5px;
-            float: right;
-            width:100px;
-            margin-top: -32px;
+            width:80px;
         }
+        #encrypt_button2{
+            border-radius:10px;
+            background-color:dimgrey;
+            margin-bottom: 5px;
+            width:100px;
+        }  
 
         #encrypt_button:hover{
+            color:white;
+        }
+        #encrypt_button1:hover{
+            color:white;
+        }
+        #encrypt_button2:hover{
             color:white;
         }
         #plaintext_area1{
@@ -71,9 +82,10 @@
     <p id="demo1" style="color:white; margin-top:20px;">PlainText</p>
     <textarea id="plaintext_area" name="plaintext" placeholder="Enter text which you want to encrypt.."></textarea> <br>
     <p id="demo2" style="color:white;"> Key</p>
-    <textarea type="text" name="key" placeholder="Enter key.." id="key_input"/></textarea> <br>;
-        <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)"><br>&nbsp;
+    <textarea type="text" name="key" placeholder="Enter key.." id="key_input"/></textarea>
+        <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)">
         <input type="button" value=" Decrypt " id="encrypt_button1"  onclick="doCrypt(true)">
+        <input type="button" value=" Random Key " id="encrypt_button2"  onclick="">
     <textarea id="plaintext_area2" name="plaintext" placeholder="Encrypted Text"></textarea> <br>
     </div>
       <script type="text/javascript">
