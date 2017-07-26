@@ -70,6 +70,11 @@
             color: white;
             background-color:#BCBBBA;
         }
+        #randomkey{
+            margin-left: 20px;
+            margin-top: 10px;
+            color: white;
+        }
         .main{
             max-width: 980px !important;
             margin: 0 auto;
@@ -81,39 +86,59 @@
    <div class="main">
     <p id="demo1" style="color:white; margin-top:20px;">PlainText</p>
     <textarea id="plaintext_area" name="plaintext" placeholder="Enter text which you want to encrypt.."></textarea> <br>
+<<<<<<< HEAD
     <p id="demo2" style="color:white;"> Key</p>
     <textarea type="text" name="key" placeholder="Enter key.." id="key_input"/></textarea>
         <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)">
         <input type="button" value=" Decrypt " id="encrypt_button1"  onclick="doCrypt(true)">
         <input type="button" value=" Random Key " id="encrypt_button2"  onclick="">
+=======
+
+    <p id="demo2" style="color:white;"> Key <br><br>
+    <textarea type="text" name="key" placeholder="Enter key.." id="key_input"/></textarea><input type="checkbox" id="randomkey">Random <br><br>
+    </p>
+
+    <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)"><br>&nbsp;
+    <input type="button" value=" Decrypt " id="encrypt_button1"  onclick="doCrypt(true)">
+
+>>>>>>> e85828e229177e7731c094708bf42fdc577c246c
     <textarea id="plaintext_area2" name="plaintext" placeholder="Encrypted Text"></textarea> <br>
     </div>
-      <script type="text/javascript">
+
+    <script type="text/javascript">
 /*
  * function which returns encryption when false is passed in isDecrypt.
  */
 function doCrypt(isDecrypt) {
-	if (document.getElementById("key_input").value.length == 0) {
-		alert("Key is empty");
-		return;
-	}
-    if (document.getElementById("plaintext_area").value.length == 0) {
-		alert("No message to encrypt");
-		return;
-	}
-	var key = filterKey(document.getElementById("key_input").value);
-	if (key.length == 0) {
-		alert("Key has no letters");
-		return;
-	}
-	if (isDecrypt) {
+
+  var key = filterKey(document.getElementById("key_input").value);
+  if (isDecrypt) {
 		for (var i = 0; i < key.length; i++)
 			key[i] = (26 - key[i]) % 26;
-	}
+	var textElem = document.getElementById("plaintext_area2").value;
+	textElem = crypt(textElem, key);
+  document.getElementById("plaintext_area").innerHTML = textElem;
+  }
+
+  else{
+   if (document.getElementById("key_input").value.length == 0) {
+	 	 alert("Key is empty");
+		 return;
+	 }
+     if (document.getElementById("plaintext_area").value.length == 0) {
+	  	alert("No message to encrypt");
+  		return;
+	 }
+	 if (key.length == 0) {
+  		alert("Key has no letters");
+		 return;
+	 }
 	var textElem = document.getElementById("plaintext_area").value;
 	textElem = crypt(textElem, key);
   document.getElementById("plaintext_area2").innerHTML = textElem;
-}
+  }
+
+  }
 
 /*
  * Returns the result the Vigenère encryption on the given text with the given key.
