@@ -7,6 +7,10 @@ function doCrypt(isDecrypt) {
 	var textElem = document.getElementById("plaintext_area").value;
 	textElem = crypt(textElem, key);
   document.getElementById("plaintext_area2").innerHTML = textElem;
+  if (document.getElementById("plaintext_area2").value.length == 0) {
+	  	alert("No message to decrypt");
+  		return;
+	 }
   }
 
   else{
@@ -79,4 +83,18 @@ function isUppercase(c) {
 // Tests whether the specified character code is a lowercase letter.
 function isLowercase(c) {
 	return c >= 97 && c <= 122;  // 97 is the character code for 'a'. 122 is for 'z'.
+}
+//Function to input the random key .
+function randomKey(){
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    for(var i=0;i<10;i++)
+    {
+        text+= possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+}
+document.getElementById("encrypt_button2").onclick = function()
+{
+    document.getElementById("key_input").innerHTML = randomKey(); 
 }
