@@ -14,13 +14,13 @@ function doCrypt(isDecrypt) {
   }
 
   else{
+    if (document.getElementById("plaintext_area").value.length == 0) {
+	  	alert("No message to encrypt");
+  		return;
+	 }
    if (document.getElementById("key_input").value.length == 0) {
 	 	 alert("Key is empty");
 		 return;
-	 }
-     if (document.getElementById("plaintext_area").value.length == 0) {
-	  	alert("No message to encrypt");
-  		return;
 	 }
 	 if (key.length == 0) {
   		alert("Key has no letters");
@@ -46,7 +46,11 @@ function crypt(input, key) {
 		} else if (isLowercase(c)) {
 			output += String.fromCharCode((c - 97 + key[j % key.length]) % 26 + 97);
 			j++;
-		} else {
+		} else if (c==32){
+      output += String.fromCharCode((c - 97 + key[j % key.length]) % 26 + 97);
+			j++;
+    }
+    else {
 			output += input.charAt(i);
 		}
 	}
@@ -64,15 +68,16 @@ function filterKey(key) {
 	var result = [];
 	for (var i = 0; i < key.length; i++) {
 		var c = key.charCodeAt(i);
-		if (isLetter(c))
+		if (isLetter(c)){
 			result.push((c - 65) % 32);
+    }
 	}
 	return result;
 }
  //basically it checks all the cases of uppercase and lowercase.
 // Tests whether the specified character code is a letter.
 function isLetter(c) {
-	return isUppercase(c) || isLowercase(c);
+	return isUppercase(c) || isLowercase(c) || c==32;
 }
 
 // Tests whether the specified character code is an uppercase letter.
