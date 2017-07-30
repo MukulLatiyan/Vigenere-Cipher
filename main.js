@@ -4,9 +4,9 @@ function doCrypt(isDecrypt) {
   if (isDecrypt) {
 		for (var i = 0; i < key.length; i++)
 			key[i] = (26 - key[i]) % 26;
-	var textElem = document.getElementById("plaintext_area").value;
+	var textElem = document.getElementById("plaintext_area2").value;
 	textElem = crypt(textElem, key);
-  document.getElementById("plaintext_area2").innerHTML = textElem;
+  document.getElementById("plaintext_area").value = textElem;
   if (document.getElementById("plaintext_area2").value.length == 0) {
 	  	alert("No message to decrypt");
   		return;
@@ -28,7 +28,7 @@ function doCrypt(isDecrypt) {
 	 }
 	var textElem = document.getElementById("plaintext_area").value;
 	textElem = crypt(textElem, key);
-  document.getElementById("plaintext_area2").innerHTML = textElem;
+  document.getElementById("plaintext_area2").value = textElem;
   }
 
   }
@@ -85,16 +85,13 @@ function isLowercase(c) {
 	return c >= 97 && c <= 122;  // 97 is the character code for 'a'. 122 is for 'z'.
 }
 //Function to input the random key .
-function randomKey(){
+document.getElementById("encrypt_button2").onclick = function()
+{
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     for(var i=0;i<10;i++)
     {
-        text+= possible.charAt(Math.floor(Math.random() * possible.length));
+      text+= possible.charAt(Math.floor(Math.random() * possible.length));
     }
-    return text;
-}
-document.getElementById("encrypt_button2").onclick = function()
-{
-    document.getElementById("key_input").innerHTML = randomKey(); 
+    document.getElementById("key_input").value = text;
 }
