@@ -89,7 +89,8 @@ document.getElementById("encrypt_button2").onclick = function()
 {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    for(var i=0;i<10;i++)
+    var numberofchar = Math.floor(Math.random() * 40) + 10;
+    for(var i=0;i<numberofchar;i++)
     {
       text+= possible.charAt(Math.floor(Math.random() * possible.length));
     }
