@@ -18,7 +18,7 @@ function doCrypt(isDecrypt) {
 	  	alert("No message to encrypt");
   		return;
 	 }
-   if (document.getElementById("key_input").value.length == 0) {
+   if (document.getElementById("enc_message").value.length == 0) {
 	 	 alert("Key is empty");
 		 return;
 	 }
@@ -34,7 +34,7 @@ function doCrypt(isDecrypt) {
   }
 
 /*
- * Returns the result the Vigenère encryption on the given text with the given key.
+ * Returns the result the VigenÃ¨re encryption on the given text with the given key.
  */
 function crypt(input, key) {
 	var output = "";
