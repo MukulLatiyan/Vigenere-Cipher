@@ -16,7 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from myapp.views import main_view
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     url('', main_view)
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
