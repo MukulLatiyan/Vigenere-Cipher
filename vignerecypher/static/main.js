@@ -18,7 +18,7 @@ function doCrypt(isDecrypt) {
 	  	alert("No message to encrypt");
   		return;
 	 }
-   if (document.getElementById("enc_message").value.length == 0) {
+   if (document.getElementById("key_input").value.length == 0) {
 	 	 alert("Key is empty");
 		 return;
 	 }
