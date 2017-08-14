@@ -4,37 +4,37 @@ function doCrypt(isDecrypt) {
   if (isDecrypt) {
 		for (var i = 0; i < key.length; i++)
 			key[i] = (26 - key[i]) % 26;
-	var textElem = document.getElementById("plaintext_area").value;
+	var textElem = document.getElementById("enc_message").value;
 	textElem = crypt(textElem, key);
-  document.getElementById("plaintext_area2").innerHTML = textElem;
-  if (document.getElementById("plaintext_area2").value.length == 0) {
+  document.getElementById("message").value = textElem;
+  if (document.getElementById("enc_message").value.length == 0) {
 	  	alert("No message to decrypt");
   		return;
 	 }
   }
 
   else{
+    if (document.getElementById("message").value.length == 0) {
+	  	alert("No message to encrypt");
+  		return;
+	 }
    if (document.getElementById("key_input").value.length == 0) {
 	 	 alert("Key is empty");
 		 return;
-	 }
-     if (document.getElementById("plaintext_area").value.length == 0) {
-	  	alert("No message to encrypt");
-  		return;
 	 }
 	 if (key.length == 0) {
   		alert("Key has no letters");
 		 return;
 	 }
-	var textElem = document.getElementById("plaintext_area").value;
+	var textElem = document.getElementById("message").value;
 	textElem = crypt(textElem, key);
-  document.getElementById("plaintext_area2").innerHTML = textElem;
+  document.getElementById("enc_message").value = textElem;
   }
 
   }
 
 /*
- * Returns the result the Vigenère encryption on the given text with the given key.
+ * Returns the result the VigenÃ¨re encryption on the given text with the given key.
  */
 function crypt(input, key) {
 	var output = "";
@@ -46,7 +46,11 @@ function crypt(input, key) {
 		} else if (isLowercase(c)) {
 			output += String.fromCharCode((c - 97 + key[j % key.length]) % 26 + 97);
 			j++;
-		} else {
+		} else if (c==32){
+      output += String.fromCharCode((c - 97 + key[j % key.length]) % 26 + 97);
+			j++;
+    }
+    else {
 			output += input.charAt(i);
 		}
 	}
@@ -64,15 +68,16 @@ function filterKey(key) {
 	var result = [];
 	for (var i = 0; i < key.length; i++) {
 		var c = key.charCodeAt(i);
-		if (isLetter(c))
+		if (isLetter(c)){
 			result.push((c - 65) % 32);
+    }
 	}
 	return result;
 }
  //basically it checks all the cases of uppercase and lowercase.
 // Tests whether the specified character code is a letter.
 function isLetter(c) {
-	return isUppercase(c) || isLowercase(c);
+	return isUppercase(c) || isLowercase(c) || c==32;
 }
 
 // Tests whether the specified character code is an uppercase letter.
@@ -85,16 +90,14 @@ function isLowercase(c) {
 	return c >= 97 && c <= 122;  // 97 is the character code for 'a'. 122 is for 'z'.
 }
 //Function to input the random key .
-function randomKey(){
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    for(var i=0;i<10;i++)
-    {
-        text+= possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
-}
 document.getElementById("encrypt_button2").onclick = function()
 {
-    document.getElementById("key_input").innerHTML = randomKey(); 
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    var numberofchar = Math.floor(Math.random() * 40) + 10;
+    for(var i=0;i<numberofchar;i++)
+    {
+      text+= possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    document.getElementById("key_input").value = text;
 }
