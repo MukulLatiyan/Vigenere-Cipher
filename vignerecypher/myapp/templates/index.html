@@ -13,7 +13,11 @@
             margin: 0 auto;
             max-width: 1100px;
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         h1,
         h2,
         h3 {
@@ -22,7 +26,11 @@
             margin: 10px;
             font-weight: lighter;
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         .container {
             padding: 10px;
             background-color: #F1F1F1;
@@ -32,11 +40,19 @@
             border-radius: 10px;
             width: 100%;
         }
+<<<<<<< HEAD
         
         .main {
             color: #888;
         }
         
+=======
+
+        .main {
+            color: #888;
+        }
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         #name,
         #message,
         #email,
@@ -45,7 +61,11 @@
             border-color: #B0CFE0;
             border-radius: 3px;
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         .name,
         .email,
         .message,
@@ -53,7 +73,11 @@
         .enc_message{
             margin: 10px;
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         #encrypt_button,
         #encrypt_button1,
         #encrypt_button2 {
@@ -61,19 +85,33 @@
             -webkit-transition-duration: 0.4s;
             transition-duration: 0.4s;
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         #encrypt_button:hover,
         #encrypt_button1:hover,
         #encrypt_button2:hover {
             background-color: antiquewhite;
+<<<<<<< HEAD
             color:darkgreen; 
         }
         
+=======
+            color:darkgreen;
+        }
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         #lol,
         #lol1,#lol3 {
             vertical-align: top;
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
         @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
     </style>
@@ -84,8 +122,13 @@
     <div class="container">
         <h1>Vignere Cypher</h1>
 
+<<<<<<< HEAD
         <!--  {% csrf_token %}-->
         <div class="main">
+=======
+        {% csrf_token %}
+        <form class="main">
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
             <div class="name">
                 <label for="name">Your Name: </label>
                 <input id="name" type="text" name="name" value="{{ name }}">
@@ -99,19 +142,35 @@
                 <textarea rows="5" cols="50" id="message" type="text" name="message" value="{{ message }}"></textarea>
             </div>
             <div class="key_input">
+<<<<<<< HEAD
                 <label id="lol3" for="key">Enter the key:</label>
+=======
+                <label id="lol3">Enter the key:</label>
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
                 <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input" /></textarea>
                 <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)">
                 <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
                 <input type="button" value=" Random Key " id="encrypt_button2" onclick="">
+<<<<<<< HEAD
+            </div>
+            <div class="enc_message">
+                <label for="enc_message" id="lol1">Encrypted Message: </label>
+                <textarea rows="5" cols="50" id="enc_message" type="text" name="enc_message" value="{{ enc_message }}"></textarea>
+=======
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
             </div>
             <div class="enc_message">
                 <label for="enc_message" id="lol1">Encrypted Message: </label>
                 <textarea rows="5" cols="50" id="enc_message" type="text" name="enc_message" value="{{ enc_message }}"></textarea>
             </div>
+            <input type="submit" value="Submit">
 
+<<<<<<< HEAD
         </div>
+=======
+        </form>
+>>>>>>> 26effc7268451c886b4f3d282201f4a09e328e13
     </div>
 <script type="text/javascript" src="{% static 'main.js' %}"> </script>
-</body>
+
 </html>
