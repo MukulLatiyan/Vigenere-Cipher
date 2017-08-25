@@ -13,7 +13,6 @@
             margin: 0 auto;
             max-width: 1100px;
         }
-
         h1,
         h2,
         h3 {
@@ -22,7 +21,6 @@
             margin: 10px;
             font-weight: lighter;
         }
-
         .container {
             padding: 10px;
             background-color: #F1F1F1;
@@ -31,12 +29,13 @@
             border: 4px solid #305A72;
             border-radius: 10px;
             width: 100%;
-        }
-
+        }  
         .main {
             color: #888;
         }
-
+        .main {
+            color: #888;
+        }
         #name,
         #message,
         #email,
@@ -45,7 +44,6 @@
             border-color: #B0CFE0;
             border-radius: 3px;
         }
-
         .name,
         .email,
         .message,
@@ -53,7 +51,6 @@
         .enc_message{
             margin: 10px;
         }
-
         #encrypt_button,
         #encrypt_button1,
         #encrypt_button2 {
@@ -61,19 +58,19 @@
             -webkit-transition-duration: 0.4s;
             transition-duration: 0.4s;
         }
-
         #encrypt_button:hover,
         #encrypt_button1:hover,
         #encrypt_button2:hover {
             background-color: antiquewhite;
+            color:darkgreen; 
+        }
+        
             color:darkgreen;
         }
-
         #lol,
         #lol1,#lol3 {
             vertical-align: top;
         }
-
         @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
     </style>
@@ -84,6 +81,8 @@
     <div class="container">
         <h1>Vignere Cypher</h1>
 
+        
+        <div class="main">
         <form class="main" method="post">
             {% csrf_token %}
             <div class="name">
@@ -99,7 +98,7 @@
                 <textarea rows="5" cols="50" id="message" type="text" name="message" value="{{ message }}"></textarea>
             </div>
             <div class="key_input">
-                <label id="lol3">Enter the key:</label>
+                <label id="lol3" for="key">Enter the key:</label>
                 <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input" /></textarea>
                 <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)">
                 <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
@@ -111,6 +110,7 @@
             </div>
             <input type="submit" value="Submit">
 
+        </div>
         </form>
     </div>
 <script type="text/javascript" src="{% static 'main.js' %}"> </script>
