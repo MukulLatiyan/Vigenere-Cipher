@@ -84,8 +84,8 @@
     <div class="container">
         <h1>Vignere Cypher</h1>
 
-        {% csrf_token %}
-        <form class="main">
+        <form class="main" method="post">
+            {% csrf_token %}
             <div class="name">
                 <label for="name">Your Name: </label>
                 <input id="name" type="text" name="name" value="{{ name }}">
