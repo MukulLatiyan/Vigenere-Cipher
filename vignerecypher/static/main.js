@@ -101,3 +101,12 @@ document.getElementById("encrypt_button2").onclick = function()
     }
     document.getElementById("key_input").value = text;
 }
+
+//Function for the Post Api Call
+function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "/users", false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    var response = JSON.parse(xhttp.responseText);
+}
