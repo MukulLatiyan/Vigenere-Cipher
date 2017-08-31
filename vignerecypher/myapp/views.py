@@ -3,6 +3,11 @@ from __future__ import unicode_literals
 from models import User
 from forms import MainForm
 from django.shortcuts import render
+from serializers import UserSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
 
 def main_view(request):
     if request.method == "POST":
@@ -23,6 +28,20 @@ def main_view(request):
         form = MainForm()
 
     return render(request, 'index.html', {'form': form})
+
+class UserList(APIView):
+
+    def get(self, request, format=None):
+        user = User.objects.all()
+        user = UserSerializer(user, many=True)
+        return Response(user.data)
+
+    def post(self, request, format=None):
+        serializer = UserSerializer(data=request.DATA)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 
