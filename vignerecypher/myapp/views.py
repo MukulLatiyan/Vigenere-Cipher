@@ -7,6 +7,7 @@ from serializers import UserSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 
 
 def main_view(request):
@@ -31,6 +32,8 @@ def main_view(request):
 
 class UserList(APIView):
 
+    permission_classes = (AllowAny,)
+
     def get(self, request, format=None):
         user = User.objects.all()
         user = UserSerializer(user, many=True)
@@ -38,7 +41,7 @@ class UserList(APIView):
 
     def post(self, request, format=None):
         serializer = User.objects.create()
-        serializer = UserSerializer(data=request.DATA)
+        serializer = serializer(data=request.DATA)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

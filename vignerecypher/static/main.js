@@ -103,10 +103,24 @@ document.getElementById("encrypt_button2").onclick = function()
 }
 
 //Function for the Post Api Call
-function UserAction() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "/users", false);
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send();
-    var response = JSON.parse(xhttp.responseText);
-}
+
+var token = $("meta[name='_csrf']").attr("content");
+var data = '{"inputs":[{"data":{"name":{"email"::{"msg"::{"enc_msg"}}}]}'
+
+$("encrypt_button").on("click", function(e){
+	e.preventDefault();
+	$.ajax({
+	'type': 'POST',
+	'url': '/users/',
+	beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-TOKEN', token);
+    },
+	'data': data,
+	success: function (response) {
+		console.log(response.outputs);
+	},
+	error: function (xhr) {
+		console.log(xhr);
+	}
+})
+})
