@@ -100,7 +100,7 @@
             </div>
             <div class="key_input">
                 <label id="lol3" for="key">Enter the key:</label>
-                <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input" /></textarea>
+                <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input" ></textarea>
                 <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false);UserAction();">
                 <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
                 <input type="button" value=" Random Key " id="encrypt_button2" onclick="">
@@ -110,10 +110,10 @@
                 <textarea rows="5" cols="50" id="enc_message" type="text" name="enc_message" value="{{ enc_message }}"></textarea>
             </div>
             <input type="submit" value="Submit">
-
+            </form>
         </div>
-        </form>
+        
     </div>
 <script type="text/javascript" src="{% static 'main.js' %}"> </script>
-
+    </body>
 </html>
