@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <title>Vignere Cypher</title>
     <style>
         body {
@@ -101,15 +101,10 @@
             <div class="key_input">
                 <label id="lol3" for="key">Enter the key:</label>
                 <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input" ></textarea>
-                <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false);UserAction();">
+                <input type="submit" value=" Encrypt " id="encrypt_button">
                 <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
                 <input type="button" value=" Random Key " id="encrypt_button2" onclick="">
             </div>
-            <div class="enc_message">
-                <label for="enc_message" id="lol1">Encrypted Message: </label>
-                <textarea rows="5" cols="50" id="enc_message" type="text" name="enc_message" value="{{ enc_message }}"></textarea>
-            </div>
-            <input type="submit" value="Submit">
             </form>
         </div>
         

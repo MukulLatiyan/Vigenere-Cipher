@@ -16,13 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from myapp import views
-from myapp.views import main_view
+from django.views.generic import TemplateView
+from myapp.views import main_view, success_view
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
-    url('users/', views.UserList.as_view()),
+    url('success/', success_view),
     url('', main_view)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
