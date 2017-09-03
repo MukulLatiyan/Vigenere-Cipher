@@ -9,11 +9,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <title>Vignere Cypher</title>
     <style>
-        body {
+    body {
             font-family: 'Open Sans', sans-serif;
             margin: 0 auto;
             max-width: 1100px;
         }
+        
         h1,
         h2,
         h3 {
@@ -22,6 +23,7 @@
             margin: 10px;
             font-weight: lighter;
         }
+        
         .container {
             padding: 10px;
             background-color: #F1F1F1;
@@ -30,13 +32,16 @@
             border: 4px solid #305A72;
             border-radius: 10px;
             width: 100%;
-        }  
+        }
+        
         .main {
             color: #888;
         }
+        
         .main {
             color: #888;
         }
+        
         #name,
         #message,
         #email,
@@ -45,13 +50,15 @@
             border-color: #B0CFE0;
             border-radius: 3px;
         }
+        
         .name,
         .email,
         .message,
         .key_input,
-        .enc_message{
+        .enc_message {
             margin: 10px;
         }
+        
         #encrypt_button,
         #encrypt_button1,
         #encrypt_button2 {
@@ -59,21 +66,17 @@
             -webkit-transition-duration: 0.4s;
             transition-duration: 0.4s;
         }
+        
         #encrypt_button:hover,
         #encrypt_button1:hover,
         #encrypt_button2:hover {
             background-color: antiquewhite;
-            color:darkgreen; 
+            color: darkgreen;
         }
         
-            color:darkgreen;
-        }
-        #lol,
-        #lol1,#lol3 {
-            vertical-align: top;
-        }
-        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+        color:darkgreen;
+    }
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
     </style>
 </head>
 
@@ -84,31 +87,37 @@
 
 
         <div class="main">
-        <form class="main" method="post">
-            {% csrf_token %}
-            <div class="name">
-                <label for="name">Your Name: </label>
-                <input id="name" type="text" name="name" value="{{ name }}">
-            </div>
-            <div class="email">
-                <label for="email">Email (To whom you want to send this message): </label>
-                <input id="email" type="text" name="email" value="{{ email }}">
-            </div>
-            <div class="message">
-                <label for="message" id="lol">Message to Encrypt: </label>
-                <textarea rows="5" cols="50" id="message" type="text" name="message" value="{{ message }}"></textarea>
-            </div>
-            <div class="key_input">
-                <label id="lol3" for="key">Enter the key:</label>
-                <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input" ></textarea>
-                <input type="submit" value=" Encrypt " id="encrypt_button">
-                <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
-                <input type="button" value=" Random Key " id="encrypt_button2" onclick="">
-            </div>
+            <form class="main" method="post">
+                {% csrf_token %}
+                <div class="name">
+                    <label for="name">Your Name: </label>
+                    <input id="name" type="text" name="name" value="{{ name }}">
+                </div>
+                <div class="email">
+                    <label for="email">Email (To whom you want to send this message): </label>
+                    <input id="email" type="text" name="email" value="{{ email }}">
+                </div>
+                <div class="message">
+                    <label for="message" style="vertical-align: top;">Message to Encrypt: </label>
+                    <textarea rows="5" cols="50" id="message" type="text" name="message" value="{{ message }}"></textarea>
+                </div>
+                <div class="key_input">
+                    <label style="vertical-align: top;" for="key">Enter the key:</label>
+                    <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input"></textarea>
+                    <input type="submit" value=" Encrypt " id="encrypt_button">
+                    <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
+                    <input type="button" value=" Random Key " id="encrypt_button2" onclick="">
+                </div>
+                <div class="enc_message">
+                    <label for="enc_message" style="vertical-align: top;">Encrypted Message: </label>
+                    <textarea rows="5" cols="50" id="enc_message" type="text" name="enc_message" value="{{ enc_message }}">
+    </textarea>
+                </div>
             </form>
         </div>
-        
+
     </div>
-<script type="text/javascript" src="{% static 'main.js' %}"> </script>
-    </body>
+    <script type="text/javascript" src="{% static 'main.js' %}">
+    </script>
+</body>
 </html>
