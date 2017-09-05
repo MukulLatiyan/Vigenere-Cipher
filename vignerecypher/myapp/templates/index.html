@@ -117,7 +117,7 @@
 
         <div class="main">
             <form class="main" method="post">
-                <p style="text-align: center;">{% csrf_token %}</p>
+                {% csrf_token %}
                 <div class="name">
                     <label for="name">Your Name: </label>
                     <input id="name" type="text" name="name" value="{{ name }}">
@@ -140,15 +140,15 @@
                     <textarea rows="5" cols="50" id="enc_message" type="text" name="enc_message" value="{{ enc_message }}">
     </textarea>
                 </div>
-                <div class="buttonwala"><button type="button" class="submitwala">Share</button>
-                    <input type="submit" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)">
+                <div class="buttonwala"><button type="submit" id="submit_button" class="submitwala">Share</button>
+                    <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)">
                     <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
                 </div>
             </form>
         </div>
 
     </div>
-    <script type="text/javascript" src="main.js">
+    <script type="text/javascript" src="{% static 'main.js' %}">
 
 
     </script>
