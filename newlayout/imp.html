@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vig-Cipher</title>
+    <meta charset="utf-8">
+    <meta name="vieport" width="device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="imp.css" type="text/css">
+    <style>
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper teal fixed">
+            <a href="#" class="brand-logo">Vigenere-Cipher</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#">What</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <h4>Share a Secure Message</h4>
+        <div class="lol"><a class="waves-effect waves-light btn "><span class="haha">About</span><i class="material-icons center">details</i></a></div>
+        <br>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="first_name" type="text" class="active">
+                        <label class="active" for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label class="active" for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <i class="small material-icons">email</i>
+                        <input id="email" type="email" class="validate" placeholder="Enter your email address">
+                        <label class="active" for="email"></label>
+
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="icon_prefix2" class="materialize-textarea" placeholder="Message to encypt"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <i class="material-icons left hahaha">code</i>
+                            <div class="input-field col s6 left">
+                                <input id="input_text" type="text" data-length="10">
+                                <label for="input_text" class="active">Random Key</label>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Auto
+    <i class="material-icons right">autorenew</i>
+  </button>
+                            <div class="main">
+                                <div class="row">
+                                    <form class="col s12">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix inside">mode_edit</i>
+                                            <textarea id="icon_prefix2" class="materialize-textarea right" placeholder=" Decrypted Message"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="button">
+                            <button class="btn waves-effect waves-light c" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+                        </div>
+                    </form>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+                <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+
+                </script>
+                <script>
+                    $(document).ready(function() {
+                        Materialize.updateTextFields();
+                    });
+
+                </script>
+</body>
+
+</html>

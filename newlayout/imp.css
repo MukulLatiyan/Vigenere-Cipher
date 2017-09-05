@@ -1,0 +1,36 @@
+a{
+    font-family: 'Lato', sans-serif;
+}
+h4{
+    text-align: center;
+}
+.lol{
+    text-align: center;
+}
+.main-inside{
+    background-color: beige;
+}
+.haha{
+    padding-right: 10px !important;
+}
+
+#email{
+    margin-left: 42px;
+    max-width: 860px;
+}
+.center{
+  position: absolute;
+}
+.hahaha{
+    padding-left: 22px;
+    padding-right: 0px !important;
+}
+.inside{
+    margin-left: 20px;
+}
+.right{
+    padding-left:  20px;
+}
+.button{
+    text-align: center;
+}
