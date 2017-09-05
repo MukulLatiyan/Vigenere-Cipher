@@ -17,10 +17,11 @@ def main_view(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
+            enc_message = form.cleaned_data['enc_message']
 
             ## SAVING DATA TO DB
 
-            user = User(name=name, email=email, message=message)
+            user = User(name=name, email=email, message=message, enc_message=enc_message)
             user.save()
             return redirect('success/')
 
