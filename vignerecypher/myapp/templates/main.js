@@ -1,3 +1,4 @@
+ $(".button-collapse").sideNav();
 function doCrypt(isDecrypt) {
 
   var key = filterKey(document.getElementById("key_input").value);

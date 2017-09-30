@@ -1,0 +1,39 @@
+body {
+	background-color: #ededed;
+}
+
+nav ul li a {
+	color: black;
+}
+
+#main {
+	margin-top: 2%;
+}
+
+#main h4 {
+	font-weight: 300;
+}
+
+#main+div {
+	margin-top: 2%;
+}
+
+.container ul li div a {
+	margin-left: 42.4%;
+}
+
+.container .card-panel {
+	margin-top: 3%
+}
+
+.container div form .row+button {
+	margin-left: 27.3%;
+}
+
+.container div form button {
+	margin-left: 4%;
+}
+
+.card-panel form p {
+	font-size: 18px;
+}

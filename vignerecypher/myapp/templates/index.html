@@ -1,157 +1,104 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
-<html lang="en-Us">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <title>Vignere Cypher</title>
-    <style>
-    body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0 auto;
-            max-width: 1100px;
-        }
-        
-        h1,
-        h2,
-        h3 {
-            font-size: 28px;
-            color: #888;
-            margin: 10px;
-            font-weight: lighter;
-        }
-        
-        .container {
-            padding: 10px;
-            background-color: #F1F1F1;
-            color: white;
-            margin: 0 auto;
-            border: 4px solid #305A72;
-            border-radius: 10px;
-            width: 100%;
-        }
-        
-        .main {
-            color: #888;
-        }
-        
-        .main {
-            color: #888;
-        }
-        
-        #name,
-        #message,
-        #email,
-        #enc_message,
-        #key_input {
-            border-color: #B0CFE0;
-            border-radius: 3px;
-        }
-        
-        .name,
-        .email,
-        .message,
-        .key_input,
-        .enc_message {
-            margin: 10px;
-        }
-        
-        #encrypt_button,
-        #encrypt_button1,
-        #encrypt_button2 {
-            background-color: darkcyan;
-            height: 30px;
-            width: 100px;
-            color: chartreuse;
-            border-radius: 10px;
-            -webkit-transition-duration: 0.4s;
-            transition-duration: 0.4s;
-        }
-        
-        #encrypt_button:hover,
-        #encrypt_button1:hover,
-        #encrypt_button2:hover {
-            background-color: antiquewhite;
-            color: darkgreen;
-        }
-        
-        .submitwala {
-            color: chartreuse;
-            border-radius: 10px;
-            -webkit-transition-duration: 0.4s;
-            transition-duration: 0.4s;
-            margin: 0 auto;
-            background-color: darkcyan;
-            width:100px;
-            height: 30px;
-        }
-        
-        .submitwala:hover {
-            background-color: antiquewhite;
-            color: darkgreen;
-        }
-        
-        .buttonwala {
-            text-align: center;
-        }
-        
-        label {
-            margin-left: 30% !important;
-        }
-        
-        color:darkgreen;
-    }
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-    </style>
+ 	<meta charset="UTF-8">
+ 		<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <link rel="stylesheet" type="text/css" href="styles.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Vignere Cypher</title>
 </head>
-
 <body>
+	<nav>
+			<div class="nav-wrapper white">
+			    <div class="container">
+			      <a href="#" class="brand-logo black-text">Cloakmy</a>
+			       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons black-text">menu</i></a>
+			      <ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a href="#">What</a></li>
+			        <li><a href="#">Contact</a></li>
+			        <li><a href="#">About</a></li>
+			      </ul>
+			      <ul class="side-nav" id="mobile-demo">
+			        <li><a href="#">What</a></li>
+			        <li><a href="#">Contact</a></li>
+			        <li><a href="#">About</a></li>    
+      			  </ul>
+      			  </div>
+			</div>
+  		</nav>
+  		<div id="main">
+    		<h4 class="center-align">Share A Secure Message</h4>
+  		</div>
 
-    <div class="container">
-        <h1 style="text-align: center;">Vignere Cypher</h1>
+  		<div class="container">
+  			<ul class="collapsible" data-collapsible="accordion">
+			    <li>
+			      <div class="collapsible-header">
+			      	<a class="waves-effect waves-light btn">More Info</a>
+			      </div>
+			      <div class="collapsible-body"><p>We provide a quick, convenient and secure way to share sensitive information. Just copy your message in the box, set the recipient and your password (if you want to protect your message) and send it. The recipient will receive a secure link. If you select Auto Destruct as an expiration setting (by default), once the link is opened the message will be deleted. Hover the labels with your mouse or click them (on touchscreens) for more info. The message will be encrypted with a randomly generated key + your password if you chose one.</p>  <p><strong>We log IP addresses, be smart, don't use our service illegaly. If you use the email service, your ip will be sent to the recipent as well as a link to the secure message.</strong></p>
+			      </div>
+			    </li>    
+  			</ul>
+  		</div>
+  		<div class="container">
+  			<div class="row">
+			    <form class="col s12">
+			      <div class="row">
+			        <div class="input-field col s6">
+			          <input id="first_name" type="text" class="validate">
+			          <label for="first_name">First Name</label>
+			        </div>
+			        <div class="input-field col s6">
+			          <input id="last_name" type="text" class="validate">
+			          <label for="last_name">Last Name</label>
+			        </div>
+			      </div>
+			      <div class="row">
+			        <div class="input-field col s12">
+			          <input id="email" type="email" class="validate">
+			          <label for="email">Email</label>
+			        </div>
+			      </div>
+			      <div class="row">
+				        <div class="input-field col s12">
+				          <textarea id="message" class="materialize-textarea"></textarea>
+				          <label for="message" class='active'>Message To Encrypt</label>
+				        </div>
+      			  </div>
+      			  <div class="row">
+			        <div class="input-field col s6">
+			          <input id="key_input" type="text" class="validate">
+			          <label for="key_input">Enter Key</label>
+			        </div>
+			        <div class="col s6">
+			        	<a class="waves-effect waves-light btn" id="random_key">Random Key</a>
+			        </div>
+			      </div>
+			      <div class="row">
+				        <div class="input-field col s12">
+				          <textarea id="enc_message" class="materialize-textarea"></textarea>
+				          <label for="enc_message" class='active'>Encrypted Message</label>
+				        </div>
+      			  </div>
+    			  <button class="btn waves-effect waves-light" type="submit" name="share">Share
+    					<i class="material-icons right">send</i>
+  				  </button>
+    			  <button class="btn waves-effect waves-light" type="submit" name="encrypt">Encrypt
+  				  </button>
+    			   <button class="btn waves-effect waves-light" type="submit" name="decrypt">Decrypt
+  				  </button>			    
+			    </form>
+  			</div>
+  		</div>
 
 
-        <div class="main">
-            <form class="main" method="post">
-                {% csrf_token %}
-                <div class="name">
-                    <label for="name">Your Name: </label>
-                    <input id="name" type="text" name="name" value="{{ name }}">
-                </div>
-                <div class="email">
-                    <label for="email">Email (To whom you want to send this message): </label>
-                    <input id="email" type="text" name="email" value="{{ email }}">
-                </div>
-                <div class="message">
-                    <label for="message" style="vertical-align: top;">Message to Encrypt: </label>
-                    <textarea rows="5" cols="50" id="message" type="text" name="message" value="{{ message }}"></textarea>
-                </div>
-                <div class="key_input">
-                    <label style="vertical-align: top;" for="key" required >Enter the key(required):</label>
-                    <textarea rows="1" cols="30" type="text" name="key" placeholder="Enter key" id="key_input"></textarea>
-                    <input type="button" value=" Random Key " id="encrypt_button2" onclick="">
-                </div>
-                <div class="enc_message">
-                    <label for="enc_message" style="vertical-align: top;">Encrypted Message: </label>
-                    <textarea rows="5" cols="50" id="enc_message" type="text" name="enc_message" value="{{ enc_message }}">
-    </textarea>
-                </div>
-                <div class="buttonwala"><button type="submit" id="submit_button" class="submitwala">Share</button>
-                    <input type="button" value=" Encrypt " id="encrypt_button" onclick="doCrypt(false)">
-                    <input type="button" value=" Decrypt " id="encrypt_button1" onclick="doCrypt(true)">
-                </div>
-            </form>
-        </div>
-
-    </div>
-    <script type="text/javascript" src="{% static 'main.js' %}">
-
-
-    </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
 </body>
-
 </html>
